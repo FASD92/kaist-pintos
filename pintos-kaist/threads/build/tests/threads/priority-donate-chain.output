@@ -1,3 +1,11 @@
+c[?7l[2J[0mSeaBIOS (version 1.15.0-1)
+
+
+iPXE (https://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+0138B4A0+012CB4A0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
 Kernel command line: -q run priority-donate-chain
 0 ~ 9fc00 1
 100000 ~ 13e0000 1
@@ -16,25 +24,11 @@ Executing 'priority-donate-chain':
 (priority-donate-chain) main should have priority 15.  Actual priority: 0.
 (priority-donate-chain) main should have priority 18.  Actual priority: 0.
 (priority-donate-chain) main should have priority 21.  Actual priority: 0.
-(priority-donate-chain) interloper 5 finished.
-(priority-donate-chain) interloper 7 finished.
-(priority-donate-chain) interloper 4 finished.
-(priority-donate-chain) thread 1 got lock
-(priority-donate-chain) thread 1 should have priority 21. Actual priority: 3
-(priority-donate-chain) thread 1 finishing with priority 3.
 (priority-donate-chain) main finishing with priority 0.
 (priority-donate-chain) end
 Execution of 'priority-donate-chain' complete.
-Timer: 129 ticks
-Thread: 0 idle ticks, 131 kernel ticks, 0 user ticks
-Console: 1400 characters output
-(priority-donate-chain) interloper 1 finished.
-(priority-donate-chain) thread 2 got lock
-Kernel PANIC at ../../threads/synch.c:223 in lock_release(): assertion `lock_held_by_current_thread (lock)' failed.
-Call stack: 0x80042131a2 0x8004209d3b 0x8004219557 0x8004207187.
-The `backtrace' program can make call stacks useful.
-Read "Backtraces" in the "Debugging Tools" chapter
-of the Pintos documentation for more information.
-Timer: 148 ticks
-Thread: 0 idle ticks, 148 kernel ticks, 0 user ticks
-Console: 1
+Timer: 103 ticks
+Thread: 0 idle ticks, 105 kernel ticks, 0 user ticks
+Console: 1080 characters output
+Keyboard: 0 keys pressed
+Powering off...

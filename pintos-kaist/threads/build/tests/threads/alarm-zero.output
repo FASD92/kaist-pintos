@@ -1,3 +1,11 @@
+c[?7l[2J[0mSeaBIOS (version 1.15.0-1)
+
+
+iPXE (https://ipxe.org) 00:03.0 CA00 PCI2.10 PnP PMM+0138B4A0+012CB4A0 CA00
+Press Ctrl-B to configure iPXE (PCI 00:03.0)...                                                                               
+
+
+Booting from Hard Disk...
 Kernel command line: -q run alarm-zero
 0 ~ 9fc00 1
 100000 ~ 13e0000 1
@@ -11,8 +19,8 @@ Executing 'alarm-zero':
 (alarm-zero) PASS
 (alarm-zero) end
 Execution of 'alarm-zero' complete.
-Timer: 37 ticks
-Thread: 0 idle ticks, 38 kernel ticks, 0 user ticks
+Timer: 38 ticks
+Thread: 0 idle ticks, 40 kernel ticks, 0 user ticks
 Console: 424 characters output
 Keyboard: 0 keys pressed
 Powering off...

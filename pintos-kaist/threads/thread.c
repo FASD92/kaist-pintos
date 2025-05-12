@@ -30,11 +30,11 @@ static struct list ready_list;
 
 /* sleep queue 선언        
 	*/
-static struct list sleep_list;
+//struct list sleep_list;
 
 
 /* Idle thread. */
-static struct thread *idle_thread;
+struct thread *idle_thread;
 
 /* Initial thread, the thread running init.c:main(). */
 static struct thread *initial_thread;
@@ -124,7 +124,7 @@ thread_init (void) {
 	/* Init the globla thread context */
 	lock_init (&tid_lock);
 	list_init (&ready_list);
-	list_init (&sleep_list);
+	//list_init (&sleep_list);
 	list_init (&destruction_req);
 
 	/* Set up a thread structure for the running thread. */
@@ -152,7 +152,10 @@ thread_start (void) {
 }
 
 /* Called by the timer interrupt handler at each timer tick.
-   Thus, this function runs in an external interrupt context. */
+   Thus, this function runs in an external interrupt context.
+   타이머 인터럽트 핸들러에 의해 매 타이머 틱마다 호출된다
+   따라서 이 함수는 외부 인터럽트 컨텍스트에서 실행된다
+   */
 void
 thread_tick (void) {
 	struct thread *t = thread_current ();
