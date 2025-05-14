@@ -279,9 +279,9 @@ thread_unblock (struct thread *t) {
 	t->status = THREAD_READY;
 	intr_set_level (old_level);
 
-	if (!intr_context () && thread_current ()->priority < t->priority) {
-    	thread_yield ();
-	}
+	// if (!intr_context () && thread_current ()->priority < t->priority) {
+    // 	thread_yield ();
+//	}
 }
 
 /* Returns the name of the running thread. */
@@ -672,9 +672,7 @@ allocate_tid (void) {
 
 /* 스레드의 우선순위를 비교하는 함수
 	레퍼런스는 timer.c 내 cmp_less 함수에서 가져옴 */
-bool cmp_priority(struct list_elem *a,
-                         struct list_elem *b,
-                         void *aux ) {
+bool cmp_priority(struct list_elem *a, struct list_elem *b, void *aux ) {
     struct thread *ta = list_entry(a, struct thread, elem);
     struct thread *tb = list_entry(b, struct thread, elem);
     return ta->priority > tb->priority;

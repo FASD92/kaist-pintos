@@ -33,7 +33,7 @@
 #include "threads/thread.h"
 
 bool cmp_sema_priority(const struct list_elem *a, const struct list_elem *b, void *aux);
-extern bool cmp_priority(const struct list_elem *a, const struct list_elem *b, void *aux);
+extern bool cmp_priority(struct list_elem *a, struct list_elem *b, void *aux);
 
 /* Initializes semaphore SEMA to VALUE.  A semaphore is a
    nonnegative integer along with two atomic operators for
@@ -70,8 +70,8 @@ sema_down (struct semaphore *sema) {
 	old_level = intr_disable ();
 	while (sema->value == 0) {
 		//list_push_back (&sema->waiters, &thread_current ()->elem);
-		//list_insert_ordered(&sema->waiters, &thread_current()->elem, cmp_sema_priority, NULL);
-		list_insert_ordered(&sema->waiters, &thread_current()->elem, cmp_priority, NULL);
+		list_insert_ordered(&sema->waiters, &thread_current()->elem, cmp_sema_priority, NULL);
+		//list_insert_ordered(&sema->waiters, &thread_current()->elem, cmp_priority, NULL);
 		thread_block ();
 	}
 	sema->value--;
@@ -115,8 +115,8 @@ sema_up (struct semaphore *sema) {
 
 	old_level = intr_disable ();
 	if (!list_empty(&sema->waiters)) {
-		//list_sort(&sema->waiters, cmp_sema_priority, NULL); // 최신 priority 순 정렬
-		list_sort(&sema->waiters, cmp_priority, NULL);
+		list_sort(&sema->waiters, cmp_sema_priority, NULL); // 최신 priority 순 정렬
+		//list_sort(&sema->waiters, cmp_priority, NULL);
 		thread_unblock(list_entry(list_pop_front(&sema->waiters), struct thread, elem));
 }
 /*	if (!list_empty (&sema->waiters))
@@ -203,7 +203,7 @@ lock_acquire (struct lock *lock) {
 	struct thread *curr = thread_current();
 	if (lock->holder) {
 		curr->wait_on_lock = lock;
-		donate_priority();
+		//donate_priority();
 	}
 	sema_down (&lock->semaphore);
 	curr->wait_on_lock = NULL;

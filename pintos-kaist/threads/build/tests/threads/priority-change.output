@@ -6,7 +6,7 @@ Press Ctrl-B to configure iPXE (PCI 00:03.0)...
 
 
 Booting from Hard Disk...
-Kernel command line: -q run alarm-negative
+Kernel command line: -q run priority-change
 0 ~ 9fc00 1
 100000 ~ 13e0000 1
 Pintos booting with: 
@@ -14,13 +14,17 @@ Pintos booting with:
 	ext_mem: 0x100000 ~ 0x13e0000 (Usable: 19,328 kB)
 Calibrating timer...  26,188,800 loops/s.
 Boot complete.
-Executing 'alarm-negative':
-(alarm-negative) begin
-(alarm-negative) PASS
-(alarm-negative) end
-Execution of 'alarm-negative' complete.
-Timer: 48 ticks
-Thread: 2 idle ticks, 49 kernel ticks, 0 user ticks
-Console: 448 characters output
+Executing 'priority-change':
+(priority-change) begin
+(priority-change) Creating a high-priority thread 2.
+(priority-change) Thread 2 now lowering priority.
+(priority-change) Thread 2 should have just lowered its priority.
+(priority-change) Thread 2 exiting.
+(priority-change) Thread 2 should have just exited.
+(priority-change) end
+Execution of 'priority-change' complete.
+Timer: 64 ticks
+Thread: 0 idle ticks, 67 kernel ticks, 0 user ticks
+Console: 688 characters output
 Keyboard: 0 keys pressed
 Powering off...
