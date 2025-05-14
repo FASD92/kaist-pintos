@@ -31,7 +31,9 @@ static bool wakeup_less(const struct list_elem *a,
    Initialized by timer_calibrate(). */
 static unsigned loops_per_tick;
 
+//static void timer_interrupt(struct intr_frame *args UNUSED);
 static intr_handler_func timer_interrupt;
+
 static bool too_many_loops (unsigned loops);
 static void busy_wait (int64_t loops);
 static void real_time_sleep (int64_t num, int32_t denom);
@@ -50,6 +52,8 @@ timer_init (void) {
 	outb (0x40, count >> 8);
 
 	intr_register_ext (0x20, timer_interrupt, "8254 Timer");
+
+	list_init(&sleep_list);
 }
 
 /* Calibrates loops_per_tick, used to implement brief delays. */
