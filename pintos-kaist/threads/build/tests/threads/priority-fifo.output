@@ -11,7 +11,7 @@ Booting from Hard Disk..Kernel command line: -q run priority-fifo
 Pintos booting with: 
 	base_mem: 0x0 ~ 0x9fc00 (Usable: 639 kB)
 	ext_mem: 0x100000 ~ 0x13e0000 (Usable: 19,328 kB)
-Calibrating timer...  818,400 loops/s.
+Calibrating timer...  13,094,400 loops/s.
 Boot complete.
 Executing 'priority-fifo':
 (priority-fifo) begin
@@ -35,8 +35,8 @@ Executing 'priority-fifo':
 (priority-fifo) iteration: 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15 15
 (priority-fifo) end
 Execution of 'priority-fifo' complete.
-Timer: 243 ticks
-Thread: 1 idle ticks, 245 kernel ticks, 0 user ticks
-Console: 1595 characters output
+Timer: 157 ticks
+Thread: 1 idle ticks, 158 kernel ticks, 0 user ticks
+Console: 1598 characters output
 Keyboard: 0 keys pressed
 Powering off...

@@ -2,6 +2,7 @@
     "files.associations": {
         "list.h": "c",
         "interrupt.h": "c",
-        "intr-stubs.h": "c"
+        "intr-stubs.h": "c",
+        "functional": "c"
     }
 }
